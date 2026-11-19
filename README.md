@@ -1,7 +1,6 @@
 # Wenn die Werte nicht unabhängig sind: dieselbe Zahl, das Gegenteil – Streamlit-Demo
 
-<!-- Nach dem Deploy direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-abhaengige-werte-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-abhaengige-werte-demo.streamlit.app/)**
 
 Eine Demo-Seite der Reihe **Änderungserkennung** („Wie schnell merkt man, dass sich etwas geändert hat?“) in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Stück 5 der Reihe; Vorgänger ist Stück 4 (`anfangsparameter-demo`, Parameter schätzen), Nachfolger Stück 6 (viele Kanäle). Die Kante ist ein `fix`: die Stücke 1 bis 4 nehmen an, **aufeinanderfolgende Beobachtungen sind unabhängig** (und normal); dieses Stück hebt die Unabhängigkeit auf und misst, was die Zahl „ARL₀ = 370,4“ dann noch verspricht. Alle Parameter sind **bekannt** (wie in Stück 1 bis 3), damit nur die Abhängigkeit wirkt; die Frage, wie sich ein **geschätztes** φ̂ in Phase I auswirkt, beantwortet Stück 4b (`anfangsparameter-abhaengig-demo`), hier nur der Verweis.
 
