@@ -144,6 +144,17 @@ with st.container(key="kopf"):
     st.title("🔀 Wenn die Werte nicht unabhängig sind: dieselbe Zahl, das Gegenteil")
 st.markdown(TX.intro())
 
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/abhaengige-werte-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Die Zusage „im Mittel nach einer bestimmten Zahl von Messungen ein Fehlalarm“ gilt für Werte, die voneinander unabhängig sind. Wartezeiten an einem Tor sind es nicht: Nach einer langen kommt meist wieder eine lange. Die Demo rechnet exakt vor, was die Zusage dann noch heißt. Das Ergebnis ist je nach Regel das Gegenteil: Die einfache Karte meldet seltener falsch als versprochen, der CUSUM, der Abweichungen sammelt, viel öfter. Eine Karte auf den bereinigten Resten hält die Zusage, erkennt aber einen echten Versatz langsamer. Außerdem zeigt die App, was schiefe Werte, ein Modell des Lkw-Tors und die Suche nach Sprungstellen im Rückblick ändern. Alles gilt für ausgedachte Reihen mit bekannten Parametern.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/abhaengige-werte-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
+
 with st.expander("So funktioniert die Demo: Modell, Karten und das Maß", expanded=True):
     st.markdown(TX.SO_FUNKTIONIERT)
 
@@ -410,6 +421,26 @@ st.markdown(TX.ASSUMPTIONS_MARKDOWN)
 
 st.markdown("---")
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/abhaengige-werte-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben ist eine Reihe $u_t$ (AR(1), bekannte Parameter) und eine Alarmregel. Gesucht ist die Verteilung der Lauflänge $T$, also der Zahl der Beobachtungen bis zum Alarm, vor allem $\mathrm{ARL}_0 = E[T]$ und $P(T \le 100)$.
+
+| Symbol | Bedeutung |
+|---|---|
+| $\varphi$ | AR-Koeffizient; die Korrelation zwischen Wert $t$ und Wert $t + k$ ist $\varphi^k$ |
+| $s$ | $\sqrt{1 - \varphi^2}$, Streuung der Innovation |
+| $T$ | Lauflänge: Zahl der Beobachtungen bis einschließlich der alarmierenden |
+| $\mathrm{ARL}_0$, $\mathrm{ARL}_1$ | $E[T]$ ohne Änderung bzw. nach der Änderung ($\nu = 0$) |
+| $k$, $h$ | Referenzwert (0,5) und Schwelle des CUSUM |
+| $\delta$ | Größe der Änderung in marginalen Standardabweichungen |
+| $\rho$ | Auslastung der Warteschlange (nie die Autokorrelation) |
+| $p$, $q$ | Alarmrate je Beobachtung und $P(\text{zweiter Alarm in Folge} \mid \text{Alarm})$ |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/abhaengige-werte-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(TX.MATH_INTRO)
     st.markdown(TX.CONVENTIONS_MARKDOWN)
     st.markdown(TX.MATH_MARKDOWN)

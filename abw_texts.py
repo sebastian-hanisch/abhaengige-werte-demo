@@ -126,7 +126,7 @@ def exp3_falle() -> str:
 # ------------------------------------------------------------------------------------------------------------------ Experiment 4
 def exp4_frage() -> str:
     return (
-        "**Kernfrage 4: Was geschieht an einer echten Warteschlange?** Die Wartezeiten aufeinanderfolgender Lkw sind stark abhängig **und** schief (Atom bei 0). Gezeigt wird die M/M/1-Wartezeit (Lindley-Kette, Abfertigung 1, Auslastung ρ = λ, "
+        "**Kernfrage 4: Was geschieht an einer echten Warteschlange?** Die Wartezeiten aufeinanderfolgender Lkw sind stark abhängig **und** schief (Atom bei 0). Gezeigt wird die M/M/1-Wartezeit (Lindley-Rekursion, Abfertigung 1, Auslastung ρ = λ, "
         "stationär) als exakter Fall: Lag 1 bis 5, Shewhart nach oben bei μ + 3σ (geschlossene Lösung), CUSUM einseitig auf (W − μ)/σ. **iid-Sicht** heißt: dieselbe Randverteilung, aber unabhängige Werte. "
         "Darunter das Gate selbst (M/M/2/6: zwei Spuren, 6 Plätze **insgesamt**, angenommene Lkw; Simulation)."
     )
@@ -203,7 +203,7 @@ MATH_INTRO = """
 """
 
 CONVENTIONS_MARKDOWN = """
-**Konventionen.** *Zähleinheiten:* **Beobachtungen** (Lauflänge, Verzögerung), **Läufe** (Simulation; ein Lauf = eine Reihe), **Reihen** (Segmentierung). *Zero-state:* CUSUM-Wert 0, Rauschen stationär; ein Anfangsvorsprung kommt nicht vor.
+**Konventionen.** *Zähleinheiten:* **Beobachtungen** (Lauflänge, Verzögerung), **Läufe** (Simulation; ein Lauf = eine Reihe), **Reihen** (Segmentierung). *Zero-state:* CUSUM-Wert 0, Rauschen stationär; ein Head Start (Fast Initial Response, FIR) des CUSUM kommt nicht vor.
 *Einseitig/zweiseitig* wird immer genannt: der einseitige CUSUM hat h = 4,0965 (ARL₀ auf vier Stellen 370,4 bei φ = 0), der zweiseitige h = 4,7749 für dasselbe Ziel; die Demo rechnet den zweiseitigen mit dem gerundeten h = 4,77 (ARL₀ 368,6), das ist **nicht** dieselbe Karte.
 *Ziel:* ARL₀ = 1/(2Φ(−3)) = 370,398 (nicht das gesetzte 370). *Nachgeeicht:* die Schwelle so gesetzt, dass die ARL₀ der Rohdatenkarte 370,398 ist. *Residuenkarte:* dieselbe Karte auf e_t = (x_t − φ·x_(t−1))/s mit bekanntem φ; die Karte kennt den Wert x₀ vor dem ersten
 Beobachtungsintervall (vom Messversatz nicht betroffen), e₁ hat bei Messversatz δ das Mittel δ/s, ab e₂ das Mittel (1 − φ)·δ/s; nähme sie stattdessen e₁ = x₁ ohne x₀, wäre die ARL₁ für φ = 0,6 und δ = 1 nicht 150,00, sondern 152,69.
@@ -239,7 +239,7 @@ $$e_t = \frac{x_t - \varphi\,x_{t-1}}{s}\sim N(0,1)\ \text{unabhängig},\qquad \
 
 Messversatz δ: μ₁ = δ/s, μ₂ = (1 − φ)·δ/s; Verschiebung des Prozessmittels: μ₁ = μ₂ = (1 − φ)·δ/s.
 
-**M/M/1-Wartezeit** (μ = 1, λ = ρ; Lindley-Kette):
+**M/M/1-Wartezeit** (μ = 1, λ = ρ; Lindley-Rekursion):
 
 $$W_{n+1} = \max(0,\; W_n + S_n - A_n),\qquad \mathrm{E}[W]=\frac{\rho}{1-\rho},\quad \mathrm{Var}[W] = \frac{\rho(2-\rho)}{(1-\rho)^2}.$$
 
